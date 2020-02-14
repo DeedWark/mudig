@@ -1,0 +1,64 @@
+#!/bin/bash
+### @Kenji Duriez ###
+### Most useful dig in same script ###
+
+domain=$1	#domain.com
+selector=$2	#selector (ex:google)
+dns=$(dig $1 +short)		#DNS
+mx=$(dig mx $1 +short)		#MX
+spf=$(dig txt $1 +short)	#SPF
+dm=$(dig _dmarc.$1 TXT +short)	#DMARC
+dk=$(dig $2._domainkey.$1 TXT +short 2> /dev/null)	#DKIM
+dkg=$(dig google._domainkey.$1 TXT +short)	#DKIM/wGoogle
+
+#case $1 in
+#	-h ) dig -h;;
+#	--help ) dig -h;;
+#esac
+
+### DNS ###
+if [ -z "$dns" ]
+then 
+	echo -e "\e[0;0;1m DNS (A): \e[0m\nNo DNS found\n"
+else
+	echo -e "\e[0;0;1m DNS (A): \e[0m\n$dns\n"
+fi
+### MX ###
+if [ -z "$mx" ]
+then
+	echo -e "\e[0;0;1m MX fields : \e[0m\nNo MX found\n"
+else
+	echo -e "\e[0;0;1m MX fields : \e[0m\n$mx\n"
+fi
+### SPF ###
+if [ -z "$spf" ]
+then
+	echo -e "\e[0;0;1m SPF records : \e[0m\nNo SPF found\n"
+else
+	echo -e "\e[0;0;1m SPF records : \e[0m\n$spf\n"
+fi
+
+### DMARC ###
+if [ -z "$dm" ]
+then
+	echo -e "\e[0;0;1m DMARC key :\e[0m\nNo DMARC key found\n"
+else
+	echo -e "\e[0;0;1m DMARC key :\e[0m\n$dm\n"
+fi
+
+echo -e "\e[0;0;1m DKIM key : \e[0m"
+### CHECK IF $SELECTOR IS EMPTY ###
+if [ -z "$selector" ]
+then
+	echo -e "Add a selector (ex: domain.com selector)"
+	echo -e "\nTry with Google as selector :\n$dkg"
+fi
+
+### DKIM ###
+if [ -z "$dk" ] && [ -z "$dkg" ]
+then
+	echo -e "No DKIM key found\n"
+else
+	echo -e "$dk\n"
+fi
+#####END#####
