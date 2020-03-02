@@ -11,26 +11,26 @@ and do that commands :
 
 - to add into your bin :
 ```
-sudo mv dns /usr/bin/dns
+sudo mv mudig /usr/bin/mudig
 ```
 
 - if you don't want, you can just put an alias into your **.bashrc** file (add):
 ```
-alias dns='/usr/bin/dns'
+alias mudig='/usr/bin/dns'
 ```
 - **How to use**:
   *You can just type the domain and the script will try to **resolve DKIM Key** with **Google** as selector*
 ```
-dns domain.com
+mudig domain.com
 ```
 - *You can put domain + selector : (To try to get the DKIM key)*
 ```
-dns domain.com mailjet
+mudig domain.com mailjet
 ```
 
 - Example : 
 ```
-dns protodave.com
+mudig protodave.com
  DNS (A): 
 104.236.171.34
 
