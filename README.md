@@ -11,7 +11,7 @@ and do that commands :
 
 - to add into your bin :
 ```
-sudo mv mudig /usr/bin/mudig
+sudo chmod +x mudig && mv mudig /usr/bin/mudig
 ```
 
 - if you don't want, you can just put an alias into your **.bashrc** file (add):
