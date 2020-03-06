@@ -4,12 +4,12 @@
 
 domain=$1	#domain.com
 selector=$2	#selector (ex:google)
-dns=$(dig $1 +short)		#DNS
-mx=$(dig mx $1 +short)		#MX
-spf=$(dig txt $1 +short)	#SPF
-dm=$(dig _dmarc.$1 TXT +short)	#DMARC
-dk=$(dig $2._domainkey.$1 TXT +short 2> /dev/null)	#DKIM
-dkg=$(dig google._domainkey.$1 TXT +short)	#DKIM/wGoogle
+dns=$(dig $domain +short)		#DNS
+mx=$(dig mx $domain +short)		#MX
+spf=$(dig txt $domain +short)	#SPF
+dm=$(dig _dmarc.$domain TXT +short)	#DMARC
+dk=$(dig $selector._domainkey.$domain TXT +short 2> /dev/null)	#DKIM
+dkg=$(dig google._domainkey.$domain TXT +short)	#DKIM/wGoogle
 
 #case $1 in
 #	-h ) dig -h;;
