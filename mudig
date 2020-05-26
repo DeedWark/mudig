@@ -2,19 +2,26 @@
 ### @Kenji Duriez ###
 ### Most useful dig in same script ###
 
+function help {
+	echo -ne "MUDIG - Most Useful DIG commands in same script
+	Usage: mudig [domain] [selector]
+
+	Example: mudig domain.com
+		 mudig domain.com protonmail
+
+	Use mudig -h / mudig --help / mudig help  to show this message \n" 
+}
+
+[[ $1 == "--help" ]] || [[ $1 == "-h" ]] || [[ $1 == "help" ]] || [[ -z $1 ]] && help && exit 0
+
 domain=$1	#domain.com
 selector=$2	#selector (ex:google)
-dns=$(dig $domain +short)		#DNS
-mx=$(dig mx $domain +short)		#MX
+dns=$(dig $domain +short)	#DNS
+mx=$(dig mx $domain +short)	#MX
 spf=$(dig txt $domain +short)	#SPF
 dm=$(dig _dmarc.$domain TXT +short)	#DMARC
 dk=$(dig $selector._domainkey.$domain TXT +short 2> /dev/null)	#DKIM
 dkg=$(dig google._domainkey.$domain TXT +short)	#DKIM/wGoogle
-
-#case $1 in
-#	-h ) dig -h;;
-#	--help ) dig -h;;
-#esac
 
 ### DNS ###
 if [ -z "$dns" ]
