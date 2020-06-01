@@ -30,7 +30,7 @@ mudig domain.com mailjet
 
 - Example : 
 ```
-mudig protodave.com
+mudig domain.com
  DNS (A): 
 89.88.87.86
 
