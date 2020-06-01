@@ -1,5 +1,5 @@
 #!/bin/bash
-### @Kenji Duriez ###
+### @DeedWark ###
 ### Most useful dig in same script ###
 
 function help {
