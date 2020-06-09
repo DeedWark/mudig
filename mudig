@@ -1,5 +1,5 @@
 #!/bin/bash
-### @DeedWark ###
+### @DeedWark - 2019 ###
 ### Most useful dig in same script ###
 
 function help {
