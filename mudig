@@ -18,7 +18,7 @@ domain=$1	#domain.com
 selector=$2	#selector (ex:google)
 dns=$(dig $domain +short)	#DNS
 mx=$(dig mx $domain +short)	#MX
-spf=$(dig txt $domain +short)	#SPF
+txt=$(dig txt $domain +short)	#TXT
 dm=$(dig _dmarc.$domain TXT +short)	#DMARC
 dk=$(dig $selector._domainkey.$domain TXT +short 2> /dev/null)	#DKIM
 dkg=$(dig google._domainkey.$domain TXT +short)	#DKIM/wGoogle
@@ -37,12 +37,12 @@ then
 else
 	echo -e "\e[0;0;1m MX fields : \e[0m\n$mx\n"
 fi
-### SPF ###
-if [ -z "$spf" ]
+### TXT ###
+if [ -z "$txt" ]
 then
-	echo -e "\e[0;0;1m SPF records : \e[0m\nNo SPF found\n"
+	echo -e "\e[0;0;1m TXT records : \e[0m\nNo TXT found\n"
 else
-	echo -e "\e[0;0;1m SPF records : \e[0m\n$spf\n"
+	echo -e "\e[0;0;1m TXT records : \e[0m\n$txt\n"
 fi
 
 ### DMARC ###
