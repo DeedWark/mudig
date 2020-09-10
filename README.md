@@ -34,24 +34,24 @@ mudig domain.com
  DNS (A): 
 89.88.87.86
 
- MX fields : 
+ MX fields: 
 1 aspmx.l.google.com.
 5 alt1.aspmx.l.google.com.
 5 alt2.aspmx.l.google.com.
 10 alt3.aspmx.l.google.com.
 10 alt4.aspmx.l.google.com.
 
- TXT records : 
+ TXT records: 
 "v=spf1 include:_spf.google.com ip4:82.58.58.69 -all"
 
- DMARC key :
+ DMARC key:
 "v=DMARC1; p=reject; pct=100; rua=mailto:anuf9jek@ag.dmarcian.com;
 ruf=mailto:anuf9jek@fr.dmarcian.com; aspf=r;"
 
- DKIM key : 
+ DKIM key: 
 Add a selector (ex: domain.com selector)
 
-Try with Google as selector :
+Try with Google as selector:
 "v=DKIM1; k=rsa; p=FG0LfMyS0YtfHKrkUkBCEmWBPFG0LfMySxgi9f1w+7Z2IFG+AtUjrf8/9N3
 gLieaZKZT1SEhR8TnhfOm" "FG0LfMyS0YtfHKrkUkBCEmWBPisB2CcZBShKr6/T8/UB/oZF8XMRd0
 NOsru9MGx9Yp89jIYS5YRuvbA0/TLgOOiqrSU5Ms1egMwfFyy4BMDUKayZzF6BxNPc/+UoFrYHKRZp
