@@ -26,39 +26,39 @@ dkg=$(dig google._domainkey.$domain TXT +short)	#DKIM/wGoogle
 ### DNS ###
 if [ -z "$dns" ]
 then 
-	echo -e "\e[0;0;1m DNS (A): \e[0m\nNo DNS found\n"
+	echo -e "\e[0;0;1m DNS (A):\e[0m\nNo DNS found\n"
 else
-	echo -e "\e[0;0;1m DNS (A): \e[0m\n$dns\n"
+	echo -e "\e[0;0;1m DNS (A):\e[0m\n$dns\n"
 fi
 ### MX ###
 if [ -z "$mx" ]
 then
-	echo -e "\e[0;0;1m MX fields : \e[0m\nNo MX found\n"
+	echo -e "\e[0;0;1m MX fields:\e[0m\nNo MX found\n"
 else
-	echo -e "\e[0;0;1m MX fields : \e[0m\n$mx\n"
+	echo -e "\e[0;0;1m MX fields:\e[0m\n$mx\n"
 fi
 ### TXT ###
 if [ -z "$txt" ]
 then
-	echo -e "\e[0;0;1m TXT records : \e[0m\nNo TXT found\n"
+	echo -e "\e[0;0;1m TXT records:\e[0m\nNo TXT found\n"
 else
-	echo -e "\e[0;0;1m TXT records : \e[0m\n$txt\n"
+	echo -e "\e[0;0;1m TXT records:\e[0m\n$txt\n"
 fi
 
 ### DMARC ###
 if [ -z "$dm" ]
 then
-	echo -e "\e[0;0;1m DMARC key :\e[0m\nNo DMARC key found\n"
+	echo -e "\e[0;0;1m DMARC key:\e[0m\nNo DMARC key found\n"
 else
-	echo -e "\e[0;0;1m DMARC key :\e[0m\n$dm\n"
+	echo -e "\e[0;0;1m DMARC key:\e[0m\n$dm\n"
 fi
 
-echo -e "\e[0;0;1m DKIM key : \e[0m"
+echo -e "\e[0;0;1m DKIM key: \e[0m"
 ### CHECK IF $SELECTOR IS EMPTY ###
 if [ -z "$selector" ]
 then
 	echo -e "Add a selector (ex: domain.com selector)"
-	echo -e "\nTry with Google as selector :\n$dkg"
+	echo -e "\nTry with Google as selector:\n$dkg"
 fi
 
 ### DKIM ###
