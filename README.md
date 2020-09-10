@@ -42,7 +42,7 @@ mudig domain.com
 10 alt4.aspmx.l.google.com.
 
  TXT records: 
-"v=spf1 include:_spf.google.com ip4:82.58.58.69 -all"
+"v=spf1 include:_spf.google.com ip4:10.11.12.13 -all"
 
  DMARC key:
 "v=DMARC1; p=reject; pct=100; rua=mailto:meto@ag.dmarcian.com;
