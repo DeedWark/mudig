@@ -45,17 +45,17 @@ mudig domain.com
 "v=spf1 include:_spf.google.com ip4:82.58.58.69 -all"
 
  DMARC key:
-"v=DMARC1; p=reject; pct=100; rua=mailto:anuf9jek@ag.dmarcian.com;
-ruf=mailto:anuf9jek@fr.dmarcian.com; aspf=r;"
+"v=DMARC1; p=reject; pct=100; rua=mailto:meto@ag.dmarcian.com;
+ruf=mailto:tome@fr.dmarcian.com; aspf=r;"
 
  DKIM key: 
 Add a selector (ex: domain.com selector)
 
 Try with Google as selector:
-"v=DKIM1; k=rsa; p=FG0LfMyS0YtfHKrkUkBCEmWBPFG0LfMySxgi9f1w+7Z2IFG+AtUjrf8/9N3
-gLieaZKZT1SEhR8TnhfOm" "FG0LfMyS0YtfHKrkUkBCEmWBPisB2CcZBShKr6/T8/UB/oZF8XMRd0
-NOsru9MGx9Yp89jIYS5YRuvbA0/TLgOOiqrSU5Ms1egMwfFyy4BMDUKayZzF6BxNPc/+UoFrYHKRZp
-yD/kEd4FXNEddlksQIDAQAB"
+"v=DKIM1; k=rsa; p=FG0LfMyS0YtfHKrkUkBCEzfZs480LfMySxgi9f1w+7Z2IFG+AtUjrf8/9N3
+gLieaZKZT1SEhR8TnhfOm" "FG0LfMyS0YtfHKrkUkBCEmFfe1862CcZBShKr6/T8/UB/oZF8XMRd0
+NOsru6LGx9Yp89jIYS5YRuvbA0/TLgOOfGefwfFyy4BMDFadazF6BxNPc/+UoFrYHKRZp
+yD/kEd4FDAd65ddlksQIDAQAB"
 ```
 
 **TIPS for DIG command :**
