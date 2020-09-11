@@ -27,29 +27,25 @@ bold='\e[0;0;1m' #bold
 dlob='\e[0m'	 #reset bold
 
 ### DNS ###
-if [ -z "$dns" ]
-then 
+if [ -z "$dns" ]; then
 	echo -e "$bold DNS (A):$dlob\nNo DNS found\n"
 else
 	echo -e "$bold DNS (A):$dlob\n$dns\n"
 fi
 ### MX ###
-if [ -z "$mx" ]
-then
+if [ -z "$mx" ]; then
 	echo -e "$bold MX fields:$dlob\nNo MX found\n"
 else
 	echo -e "$bold MX fields:$dlob\n$mx\n"
 fi
 ### TXT ###
-if [ -z "$txt" ]
-then
+if [ -z "$txt" ]; then
 	echo -e "$bold TXT records:$dlob\nNo TXT found\n"
 else
 	echo -e "$bold TXT records:$dlob\n$txt\n"
 fi
 ### DMARC ###
-if [ -z "$dm" ]
-then
+if [ -z "$dm" ]; then
 	echo -e "$bold DMARC key:$dlob\nNo DMARC key found\n"
 else
 	echo -e "$bold DMARC key:$dlob\n$dm\n"
@@ -57,15 +53,13 @@ fi
 
 echo -e "$bold DKIM key:$dlob"
 ### CHECK IF $SELECTOR IS EMPTY ###
-if [ -z "$selector" ]
-then
+if [ -z "$selector" ]; then
 	echo -e "Add a selector (ex: domain.com selector)"
 	echo -e "\nTry with Google as selector:\n$dkg"
 fi
 
 ### DKIM ###
-if [ -z "$dk" ] && [ -z "$dkg" ]
-then
+if [ -z "$dk" ] && [ -z "$dkg" ]; then
 	echo -e "No DKIM key found\n"
 else
 	echo -e "$dk\n"
