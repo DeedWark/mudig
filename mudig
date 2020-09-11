@@ -6,10 +6,10 @@ function help {
 	echo -ne "MUDIG - Most Useful DIG commands in same script
 	Usage: mudig [domain] [selector]
 
-	Example: mudig domain.com
-		 mudig domain.com protonmail
+Example: mudig domain.com
+	 mudig domain.com protonmail
 
-	Use mudig -h / mudig --help / mudig help  to show this message \n" 
+Use mudig -h / mudig --help / mudig help  to show this message \n" 
 }
 
 [[ $1 == "--help" ]] || [[ $1 == "-h" ]] || [[ $1 == "help" ]] || [[ -z $1 ]] && help && exit 0
@@ -23,37 +23,39 @@ dm=$(dig _dmarc.$domain TXT +short)	#DMARC
 dk=$(dig $selector._domainkey.$domain TXT +short 2> /dev/null)	#DKIM
 dkg=$(dig google._domainkey.$domain TXT +short)	#DKIM/wGoogle
 
+bold='\e[0;0;1m' #bold
+dlob='\e[0m'	 #reset bold
+
 ### DNS ###
 if [ -z "$dns" ]
 then 
-	echo -e "\e[0;0;1m DNS (A):\e[0m\nNo DNS found\n"
+	echo -e "$bold DNS (A):$dlob\nNo DNS found\n"
 else
-	echo -e "\e[0;0;1m DNS (A):\e[0m\n$dns\n"
+	echo -e "$bold DNS (A):$dlob\n$dns\n"
 fi
 ### MX ###
 if [ -z "$mx" ]
 then
-	echo -e "\e[0;0;1m MX fields:\e[0m\nNo MX found\n"
+	echo -e "$bold MX fields:$dlob\nNo MX found\n"
 else
-	echo -e "\e[0;0;1m MX fields:\e[0m\n$mx\n"
+	echo -e "$bold MX fields:$dlob\n$mx\n"
 fi
 ### TXT ###
 if [ -z "$txt" ]
 then
-	echo -e "\e[0;0;1m TXT records:\e[0m\nNo TXT found\n"
+	echo -e "$bold TXT records:$dlob\nNo TXT found\n"
 else
-	echo -e "\e[0;0;1m TXT records:\e[0m\n$txt\n"
+	echo -e "$bold TXT records:$dlob\n$txt\n"
 fi
-
 ### DMARC ###
 if [ -z "$dm" ]
 then
-	echo -e "\e[0;0;1m DMARC key:\e[0m\nNo DMARC key found\n"
+	echo -e "$bold DMARC key:$dlob\nNo DMARC key found\n"
 else
-	echo -e "\e[0;0;1m DMARC key:\e[0m\n$dm\n"
+	echo -e "$bold DMARC key:$dlob\n$dm\n"
 fi
 
-echo -e "\e[0;0;1m DKIM key: \e[0m"
+echo -e "$bold DKIM key:$dlob"
 ### CHECK IF $SELECTOR IS EMPTY ###
 if [ -z "$selector" ]
 then
