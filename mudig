@@ -3,15 +3,13 @@
 ### Most useful dig in same script ###
 
 function help {
-	cat <<-EOF
-MUDIG - Most Useful DIG commands in same script
+echo -ne "MUDIG - Most Useful DIG commands in same script
 Usage:  mudig [domain] [selector]
 	
 Example: mudig domain.com
          mudig domain.com protonmail
 
-Use mudig -h / mudig --help / mudig help  to show this message
-EOF
+Use mudig -h / mudig --help / mudig help  to show this message\n"
 }
 
 [[ $1 == "--help" ]] || [[ $1 == "-h" ]] || [[ $1 == "help" ]] || [[ -z $1 ]] && help && exit 0
