@@ -5,10 +5,10 @@
 function help {
 	cat <<-EOF
 MUDIG - Most Useful DIG commands in same script
-Usage: mudig [domain] [selector]
+Usage:  mudig [domain] [selector]
 	
 Example: mudig domain.com
-	 mudig domain.com protonmail
+         mudig domain.com protonmail
 
 Use mudig -h / mudig --help / mudig help  to show this message
 EOF
